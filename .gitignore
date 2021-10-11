@@ -1,0 +1,15 @@
+# for eclipse
+.classpath
+.project
+.DS_Store
+/.settings/
+target
+# IntelliJ project files
+*.idea
+*.iml
+/log/*
+/tmp/*
+service/${biDir}/bi.log
+server/log/
+server/src/test/
+server/tmp/

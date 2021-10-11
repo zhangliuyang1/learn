@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="spring.ioc"></context:component-scan>
+
+    <bean id="food" class="spring.ioc.Food">
+        <property name="color" value="black"></property>
+        <property name="taste" value="good"></property>
+    </bean>
+
+    <bean id="people" class="spring.ioc.People" scope="singleton">
+        <property name="sex" value="nan"></property>
+        <property name="age" value="1"></property>
+        <property name="career" value="nan"></property>
+        <property name="food" ref="food"></property>
+
+      <!--  <constructor-arg name="sex" value="nan"></constructor-arg>
+        <constructor-arg name="age" value="1"></constructor-arg>
+        <constructor-arg name="career" value="nan"></constructor-arg>-->
+    </bean>
+
+
+    <bean id="serviceA" class="spring.ioc.cyclicdepend.ServiceA" scope="singleton" lazy-init="true">
+<!--        <property name="serviceB" ref="serviceB"></property>-->
+    </bean>
+<!--    <bean id="serviceB" class="spring.ioc.cyclicdepend.ServiceB" scope="singleton" lazy-init="true">-->
+<!--        <property name="serviceC" ref="serviceC"></property>-->
+<!--    </bean>-->
+<!--    <bean id="serviceC" class="spring.ioc.cyclicdepend.ServiceC" scope="singleton" lazy-init="true">-->
+<!--        <property name="serviceA" ref="serviceA"></property>-->
+<!--    </bean>-->
+
+
+</beans>
