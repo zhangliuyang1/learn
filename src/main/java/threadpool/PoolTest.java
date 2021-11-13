@@ -1,7 +1,5 @@
 package threadpool;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import sun.print.PrintJob2D;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadFactory;

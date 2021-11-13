@@ -15,9 +15,9 @@ public class BloomTest {
 
 
     public static void main(String[] args) {
-        BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(),1000000,0.01);
+        BloomFilter<Integer> bloomFilter = BloomFilter.create(Funnels.integerFunnel(),256,0.01);
         long l = bloomFilter.approximateElementCount();
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 256; i++) {
             bloomFilter.put(i);
         }
 
