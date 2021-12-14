@@ -21,4 +21,13 @@ public class App {
      *
      * 6。Comparable<T>.compareTo(T o)
      */
+
+    public static void main(String[] args) {
+        String url = "https://pic1.58cdn.com.cn/mobile/big/n_v20e930b4b7d46465c9868ee0cff6d942a.jpg?t=1";
+        if (url.contains("?")){
+            String res = url.substring(0,url.indexOf("?") + 1);
+            System.out.println(res + "w=300");
+        }
+
+    }
 }

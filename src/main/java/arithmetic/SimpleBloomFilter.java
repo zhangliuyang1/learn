@@ -90,12 +90,18 @@ public class SimpleBloomFilter {
     }
 
     public static void main(String[] args) {
-        long n = 10000;
-        double p = 0.01;
-        System.out.println(optimalNumOfBits(n, p));
+        SimpleBloomFilter bloomFilter = new SimpleBloomFilter(1000000, 0.01);
+        for (int i = 0; i < 1000000; i++) {
+            bloomFilter.add("test"+i);
+        }
 
-        System.out.println(Math.log(0.01));
-        System.out.println(Math.log(2));
+        System.out.println(bloomFilter.mightContains("test1"));
+        System.out.println(bloomFilter.mightContains("test101"));
+        System.out.println(bloomFilter.mightContains("test999"));
+        System.out.println(bloomFilter.mightContains("test9999999"));
+        System.out.println(bloomFilter.mightContains("hello1"));
+        System.out.println(bloomFilter.mightContains("hello word "));
+        System.out.println(bloomFilter.mightContains("hello success"));
     }
 
 }
