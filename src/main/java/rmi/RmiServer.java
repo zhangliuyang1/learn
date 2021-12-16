@@ -13,6 +13,7 @@ public class RmiServer {
 
     public static void main(String[] args) {
         try {
+
             UserService userService = new UserServiceImpl();
             LocateRegistry.createRegistry(9999);
             Naming.rebind("rmi://localhost:9999/user",userService);

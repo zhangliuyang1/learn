@@ -1,0 +1,30 @@
+//使用 proto3 语法 ,未指定则使用proto2
+syntax = "proto3";
+// proto 文件包名
+package protobuf;
+//生成 proto 文件所在包路径，一般来说是和文件包名一致就可以
+//option java_package = "protobuf";
+
+//生成 proto 的文件名
+option java_outer_classname="PersonInfo";
+
+import "student.proto";
+
+
+message person_data{
+  int64 id = 1;
+  string name = 2;
+  int32 age = 3;
+  int32 sex = 4;
+  float weight = 5;
+  info_data info = 6;
+  Student student = 7 ;
+}
+
+message info_data {
+  string avatar = 1;
+  string address = 2;
+  string education = 3;
+  string job = 4;
+}
+

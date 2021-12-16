@@ -1,0 +1,1 @@
+protoc -I=src/main/java/protobuf --java_out=src/main/java/protobuf src/main/java/protobuf/test.proto

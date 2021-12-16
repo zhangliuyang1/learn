@@ -10,10 +10,11 @@ import org.apache.logging.log4j.Logger;
  */
 public class LogTest {
 
-    private static Logger logger = LogManager.getLogger(LogTest.class);
+    private static final Logger logger = LogManager.getLogger(LogTest.class);
 
     public static void main(String[] args) {
         String str = "world";
-        logger.info("hello,{}",str);
+        String lu = "${log4j:configParentLocation}";
+        logger.info("hello,{}",lu);
     }
 }
