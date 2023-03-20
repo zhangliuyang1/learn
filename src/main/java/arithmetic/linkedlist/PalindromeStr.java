@@ -18,6 +18,7 @@ public class PalindromeStr {
 
 
     private static boolean judge(){
+        // 前后双指针
         String[] strings = {"a","b","c","d","c","s","a"};
         for (int i = 0; i < strings.length; i++) {
             int j = strings.length - 1 - i;
