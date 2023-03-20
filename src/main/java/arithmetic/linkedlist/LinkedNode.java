@@ -58,6 +58,11 @@ public class LinkedNode {
 
     }
 
+    /**
+     * 迭代遍历--两个指针
+     * @param node
+     * @return
+     */
     private static LinkedNode reverse(LinkedNode node) {
         // n1 n2 n3 n4
         LinkedNode pre = null;
@@ -74,6 +79,11 @@ public class LinkedNode {
     }
 
 
+    /**
+     * 、栈 - 先进后出
+     * @param node
+     * @return
+     */
     private static LinkedNode reverseStack(LinkedNode node) {
         if (node == null || node.next == null) {
             return node;
@@ -98,6 +108,11 @@ public class LinkedNode {
         return head;
     }
 
+    /**
+     * 递归
+     * @param node
+     * @return
+     */
     private static LinkedNode reverse2Recurve(LinkedNode node) {
         if (node == null || node.next == null) {
             return node;

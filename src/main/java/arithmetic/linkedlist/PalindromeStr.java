@@ -12,6 +12,7 @@ public class PalindromeStr {
         LinkedNode slow = null;
         LinkedNode fast = null;
         System.out.println(judge());
+        // TODO: 2023/3/20  
 
     }
 
