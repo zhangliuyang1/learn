@@ -1,4 +1,4 @@
-package arithmetic;
+package arithmetic.other;
 
 import java.util.concurrent.CountDownLatch;
 

@@ -1,4 +1,4 @@
-package arithmetic;
+package arithmetic.other;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

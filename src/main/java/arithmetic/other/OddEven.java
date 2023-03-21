@@ -1,4 +1,4 @@
-package arithmetic;
+package arithmetic.other;
 
 /**
  * @Author: zhangliuyang01

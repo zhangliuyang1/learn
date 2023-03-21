@@ -8,25 +8,25 @@ import java.util.Stack;
  * @author: zhangliuyang01
  * @date: 2023/3/20 14:24
  */
-public class LinkedNode {
+public class LinkedNode<T> {
 
-    private int val;
+    private T val;
 
     private LinkedNode next;
 
     public LinkedNode() {
     }
 
-    public LinkedNode(int val, LinkedNode next) {
+    public LinkedNode(T val, LinkedNode next) {
         this.val = val;
         this.next = next;
     }
 
-    public int getVal() {
+    public T getVal() {
         return val;
     }
 
-    public void setVal(int val) {
+    public void setVal(T val) {
         this.val = val;
     }
 
@@ -39,7 +39,7 @@ public class LinkedNode {
     }
 
     public static void main(String[] args) {
-        LinkedNode node = new LinkedNode(1, new LinkedNode(2, new LinkedNode(3, new LinkedNode(4, new LinkedNode(5, null)))));
+        LinkedNode<Integer> node = new LinkedNode(1, new LinkedNode(2, new LinkedNode(3, new LinkedNode(4, new LinkedNode(5, null)))));
         LinkedNode next = node;
         while (next != null) {
             System.out.println(next.getVal());

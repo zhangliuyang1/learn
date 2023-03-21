@@ -1,4 +1,4 @@
-package arithmetic;
+package arithmetic.other;
 
 import javax.swing.tree.TreeNode;
 import java.util.*;
