@@ -69,7 +69,7 @@ public class LRULinkedList<T> {
      * @param node
      */
     public void deleteNode(LinkedNode<T> node) {
-        if (node == null){
+        if (node == null) {
             return;
         }
         LinkedNode<T> p = headNode;
@@ -117,12 +117,11 @@ public class LRULinkedList<T> {
     public void add(T t) {
 
         deleteByElem(t);
-        if (length >= capacity){
+        if (length >= capacity) {
             deleteEnd();
         }
 
         insertHead(t);
-
 
 
 //        LinkedNode<T> node = findNode(t);
@@ -137,6 +136,38 @@ public class LRULinkedList<T> {
 //        }
 //        deleteNode(node);
 //        insertHead(t);
+    }
+
+    /**
+     * 1 ,2 ,3, 4
+     *
+     * @param k
+     */
+    public void deleteK(int k) {
+        LinkedNode p = headNode.getNext();
+
+        LinkedNode p1 = headNode.getNext();
+        for (int i = 0; i < k - 1; i++) {
+            p1 = p1.getNext();
+        }
+
+        LinkedNode p2 = headNode.getNext();
+        LinkedNode pre = null;
+
+        while (p1.getNext() != null) {
+            p1 = p1.getNext();
+            pre = p2;
+            p2 = p2.getNext();
+        }
+
+
+        if (p2 == null) {
+            headNode = headNode.getNext();
+        } else {
+            pre.setNext(pre.getNext().getNext());
+        }
+
+
     }
 
     private void printALL() {
@@ -154,10 +185,17 @@ public class LRULinkedList<T> {
 
     public static void main(String[] args) {
         LRULinkedList<Integer> list = new LRULinkedList(5);
-        Scanner sc = new Scanner(System.in);
-        while (true) {
-            list.add(sc.nextInt());
+//        Scanner sc = new Scanner(System.in);
+//        while (true) {
+//            list.add(sc.nextInt());
+//            list.printALL();
+//        }
+        for (int i = 1; i < 6; i++) {
+            list.add(i);
             list.printALL();
+            System.out.println("=====");
         }
+        list.deleteK(2);
+        list.printALL();
     }
 }
