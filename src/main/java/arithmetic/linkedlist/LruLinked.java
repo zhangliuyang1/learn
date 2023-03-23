@@ -1,12 +1,14 @@
 package arithmetic.linkedlist;
 
+import java.util.Scanner;
+
 /**
  * @author: zhangliuyang01
  * @date: 2023/3/20 19:53
  */
 public class LruLinked<T> {
 
-    private final static int DEFAULT_CAPACITY = 10;
+    private final static int DEFAULT_CAPACITY = 5;
 
     private LinkedNode<T> head;
 
@@ -34,8 +36,17 @@ public class LruLinked<T> {
 
 
     public void add(T data) {
-        // TODO: 2023/3/21  
-
+        // TODO: 2023/3/21
+        LinkedNode<T> preNode = findPreNode(data);
+        if (preNode != null){
+            deleteElemOptim(preNode);
+            insertAtBegin(data);
+        }else {
+            if (length >= this.capacity){
+                deleteEndNode();
+            }
+            insertAtBegin(data);
+        }
 
     }
 
@@ -58,8 +69,57 @@ public class LruLinked<T> {
         return null;
     }
 
-    private void insertAtBegin(T data){
+    private void insertAtBegin(T data) {
+        LinkedNode next = head.getNext();
+        head.setNext(new LinkedNode(data, next));
+        length++;
+    }
 
+    /**
+     * 删除preNode节点的下一个元素
+     *
+     * @param preNode
+     */
+    private void deleteElemOptim(LinkedNode preNode) {
+        LinkedNode next = preNode.getNext();
+        preNode.setNext(next.getNext());
+        next = null;
+        length--;
+    }
+
+    private void deleteEndNode() {
+        if (head.getNext() == null) {
+            return;
+        }
+        LinkedNode p = head;
+        // 1 > 2 ->3 ->4 ->5 ->null
+        while (p.getNext().getNext() != null) {
+            p = p.getNext();
+        }
+
+        LinkedNode last = p.getNext();
+
+        p.setNext(null);
+        last = null;
+        length--;
+    }
+
+
+    private void printAll() {
+        LinkedNode next = head.getNext();
+        while (next != null) {
+            System.out.print(next.getVal() + ",");
+            next = next.getNext();
+        }
+    }
+
+    public static void main(String[] args) {
+        LruLinked<Integer> linked = new LruLinked<>();
+        Scanner scanner = new Scanner(System.in);
+        while (true){
+            linked.add(scanner.nextInt());
+            linked.printAll();
+        }
     }
 }
 

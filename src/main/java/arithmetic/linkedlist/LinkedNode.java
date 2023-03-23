@@ -12,7 +12,7 @@ public class LinkedNode<T> {
 
     private T val;
 
-    private LinkedNode next;
+    private LinkedNode<T> next;
 
     public LinkedNode() {
     }
@@ -30,7 +30,7 @@ public class LinkedNode<T> {
         this.val = val;
     }
 
-    public LinkedNode getNext() {
+    public LinkedNode<T> getNext() {
         return next;
     }
 
