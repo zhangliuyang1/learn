@@ -144,8 +144,6 @@ public class LRULinkedList<T> {
      * @param k
      */
     public void deleteK(int k) {
-        LinkedNode p = headNode.getNext();
-
         LinkedNode p1 = headNode.getNext();
         for (int i = 0; i < k - 1; i++) {
             p1 = p1.getNext();
@@ -198,4 +196,6 @@ public class LRULinkedList<T> {
         list.deleteK(2);
         list.printALL();
     }
+
+
 }
